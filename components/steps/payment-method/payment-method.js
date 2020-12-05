@@ -100,7 +100,7 @@ const PaymentMethod = () => {
                     value={paymentType}
                     className="form__select__value"
                   >
-                    {/* <optgroup style={{margin:'0',backgroundColor:'#F3F3F3',color:'black',fontSize:'1.3rem'}}> */}
+                    <optgroup style={{margin:'0',backgroundColor:'#F3F3F3',color:'black',fontSize:'1.3rem'}}>
                     <option defaultValue hidden>
                       - Seleccione opción
                     </option>
@@ -109,7 +109,7 @@ const PaymentMethod = () => {
                     <option >Pago fácil</option>
                     <option >Tarjeta de débito</option>
                     <option >Transferencia</option>
-                    {/* </optgroup> */}
+                    </optgroup>
                   </select>
                 </div>
               </div>
