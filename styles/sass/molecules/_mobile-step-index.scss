@@ -1,0 +1,24 @@
+// // // // MOBILE STEP INDEX // // // //
+
+.mobile-step-index {
+  display: flex;
+  justify-content: center;
+  margin-top: size(10);
+  &__item {
+    display: block;
+    margin-left: size(20);
+    width: size(7);
+    height: size(7);
+    border-radius: 50%;
+    background-color: var(--c-bg-grey);
+    &.--active, &.--done {
+      background-color: var(--c-purple);
+    }
+    &:first-child {
+      margin-left: 0;
+    }
+  }
+  @media (min-width: 1024px) {
+    display: none;
+  }
+}

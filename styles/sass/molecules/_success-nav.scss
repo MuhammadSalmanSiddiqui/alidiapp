@@ -1,0 +1,26 @@
+// // // // SUCCESS NAV // // // //
+
+.success-nav {
+  display: none;
+  grid-template-columns: repeat(2, 1fr);
+  &__item {
+    text-align: center;
+    figure {
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      height: size(50);
+    }
+    &:first-child {
+      border-right: size(2) solid var(--c-border);
+    }
+  }
+  &__title {
+    margin: size(10) 0;
+    font-size: size(22);
+    color: var(--c-text);
+  }
+  @media (min-width: 1024px) {
+    display: grid;
+  }
+}

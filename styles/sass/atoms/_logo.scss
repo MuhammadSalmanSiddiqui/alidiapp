@@ -1,0 +1,25 @@
+// // // // LOGO // // // //
+
+.logo {
+  figure {
+    display: flex;
+    height: 100%;
+  }
+  h1 {
+    position: absolute;
+    text-indent: -99999px;
+  }
+  img {
+    width: size(110);
+  }
+  @media (min-width: 1024px) {
+    img {
+      width: size(140);
+    }
+  }
+  @media (min-width: 1440px) {
+    img {
+      width: size(194);
+    }
+  }
+}

@@ -1,0 +1,133 @@
+// // // // MODAL // // // //
+
+.modal {
+  position: relative;
+  margin-top: size(10);
+  padding: size(15);
+  height: 100%;
+  background-color: var(--c-white);
+  &__back-button {
+    display: none;
+    position: absolute;
+    top: size(30);
+    left: size(30);
+  }
+  &__title, &__subtitle {
+    font-weight: var(--f-regular);
+    text-align: center;
+    color: var(--c-text);
+  }
+  &__title {
+    margin-bottom: size(10);
+    font-size: size(18);
+    i {
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      margin: 0 auto size(20) auto;
+      width: size(40);
+      height: size(40);
+      font-size: size(20);
+      color: var(--c-white);
+      border-radius: 50%;
+      background-color: var(--c-blue);
+    }
+    &.--small {
+      font-size: size(16);
+    }
+  }
+  &__subtitle {
+    margin-bottom: size(20);
+    font-size: size(18);
+    a {
+      color: var(--c-blue-light);
+    }
+  }
+  &__buttons {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+  }
+  &__debt-amount {
+    display: block;
+    margin-bottom: size(20);
+    font-size: size(18);
+    font-weight: var(--f-bold);
+    text-align: center;
+    color: var(--c-primary);
+  }
+  &.--select-day {
+    padding-top: 0;
+  }
+  &.--dni {
+    height: auto;
+  }
+  @media (min-width: 768px) {
+    height: auto;
+    border-radius: size(18);
+    &__title {
+      &.--small {
+        font-size: size(32);
+      }
+    }
+    &__debt-amount {
+      margin-bottom: size(60);
+      font-size: size(36);
+    }
+  }
+  @media (max-width: 1023px) {
+    &.--no-padding-t {
+      padding-top: 0;
+    }
+    .--hide-mobile {
+      display: none;
+    }
+  }
+  @media (min-width: 1024px) {
+    padding: size(20);
+    &__back-button {
+      display: block;
+    }
+    &__title {
+      margin-bottom: size(20);
+      font-size: size(30);
+      i {
+        width: size(40);
+        height: size(40);
+        font-size: size(20);
+      }
+      &.--small {
+        font-size: size(24);
+      }
+    }
+    &__subtitle {
+      font-size: size(20);
+    }
+    &__debt-amount {
+      font-size: size(24);
+    }
+    &.--select-day {
+      padding-top: size(60);
+    }
+  }
+  @media (min-width: 1440px) {
+    padding: size(60) size(80);
+    &__title {
+      font-size: size(42);
+      i {
+        width: size(60);
+        height: size(60);
+        font-size: size(30);
+      }
+      &.--small {
+        font-size: size(32);
+      }
+    }
+    &__subtitle {
+      font-size: size(26);
+    }
+    &__debt-amount {
+      font-size: size(36);
+    }
+  }
+}

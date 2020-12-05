@@ -1,0 +1,4 @@
+export const DNI = 'DNI';
+export const PAYMENT_METHOD = 'PAYMENT_METHOD';
+export const PAYMENT_PROMISE_DATE = 'PAYMENT_PROMISE_DATE';
+export const RESET_STATE = 'RESET_STATE';

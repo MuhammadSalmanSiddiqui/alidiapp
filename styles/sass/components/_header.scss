@@ -1,0 +1,29 @@
+// // // // HEADER // // // //
+
+.header {
+  display: grid;
+  grid-template-areas:
+  "logo nav";
+  padding: size(10) size(10);
+  height: size(60);
+  background-color: var(--c-primary);
+  .logo {
+    grid-area: logo;
+  }
+  .user-nav {
+    grid-area: user-nav;
+  }
+  .nav, .hamburger {
+    grid-area: nav;
+  }
+  @media (min-width: 1024px) {
+    grid-template-areas:
+    "logo user-nav"
+    "logo nav";
+    padding: size(10) size(60);
+    height: size(80);
+  }
+  @media (min-width: 1440px) {
+    height: size(110);
+  }
+}

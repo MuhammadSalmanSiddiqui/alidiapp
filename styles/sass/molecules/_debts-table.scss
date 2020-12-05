@@ -1,0 +1,63 @@
+// // // // DEBTS TABLE // // // //
+
+.debts-table {
+  &__header {
+    display: none;
+    grid-template-columns: repeat(3, 1fr);
+    margin-bottom: size(20);
+  }
+  &__title {
+    font-weight: var(--f-medium);
+    color: var(--c-label);
+  }
+  &__item {
+    display: grid;
+    grid-template-areas:
+    "img button"
+    "value button";
+    justify-content: space-between;
+    margin-bottom: size(20);
+    padding-bottom: size(20);
+    border-bottom: size(2) solid var(--c-border);
+    &:last-child {
+      border-bottom: none;
+    }
+  }
+  &__image {
+    grid-area: img;
+    display: flex;
+    align-items: center;
+    justify-content: flex-start;
+  }
+  &__amount {
+    grid-area: value;
+    display: flex;
+    margin-top: size(20);
+    align-items: center;
+    font-size: size(20);
+    font-weight: var(--f-semi-bold);
+    color: var(--c-text);
+  }
+  &__action {
+    grid-area: button;
+    display: flex;
+    align-items: center;
+    justify-content: flex-end;
+  }
+  @media (min-width: 1024px) {
+    &__header {
+      display: grid;
+    }
+    &__item {
+      grid-template-areas: none;
+      grid-template-columns: repeat(3, 1fr);
+    }
+    &__image, &__amount, &__action {
+      grid-area: auto;
+    }
+    &__amount {
+      margin-top: 0;
+      font-size: size(24);
+    }
+  }
+}

@@ -1,0 +1,32 @@
+// // // // MOBILE USER NAV // // // //
+
+.mobile-user-nav{
+  display: grid;
+  grid-template-columns: repeat(2, 1fr);
+  margin: 0 size(-20);
+  li {
+    padding: size(15) size(10);
+    font-size: size(16);
+    color: var(--c-text);
+    background-color: var(--c-bg-grey);
+    &:nth-child(2) {
+      background-color: var(--c-bg-grey-2);
+      a {
+        justify-content: flex-end;
+      }
+    }
+  }
+  a {
+    display: flex;
+    align-items: center;
+    font-size: size(16);
+    white-space: nowrap;
+    color: var(--c-text-grey);
+    i {
+      margin-left: size(5);
+    }
+  }
+  @media (min-width: 1024px) {
+    display: none;
+  }
+}

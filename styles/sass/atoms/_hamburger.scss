@@ -1,0 +1,26 @@
+// // // // HAMBURGER // // // //
+
+.hamburger {
+  display: flex;
+  align-items: center;
+  justify-content: flex-end;
+  img {
+    cursor: pointer;
+    &.hamburger__close {
+      display: none;
+    }
+  }
+  &.--open {
+    img {
+      &.hamburger__nav {
+        display: none;
+      }
+      &.hamburger__close {
+        display: block;
+      }
+    }
+  }
+  @media (min-width: 1024px) {
+    display: none;
+  }
+}

@@ -1,0 +1,50 @@
+// // // // CARD INFO // // // //
+
+.card-info {
+  .form {
+    display: flex;
+    flex-direction: column;
+    figure {
+      display: none;
+      align-items: center;
+      justify-content: center;
+    }
+    .modal__buttons {
+      margin-top: size(20);
+      grid-column: 1 / -1;
+    }
+  }
+  &__image {
+    margin-bottom: size(20);
+    img {
+      height: size(100);
+    }
+  }
+  @media (min-width: 768px) {
+    &__image {
+      img {
+        width: 50%;
+        height: auto;
+      }
+    }
+  }
+  @media (min-width: 1024px) {
+    .form {
+      display: grid;
+      grid-gap: size(10);
+      grid-template-columns: repeat(2, 1fr);
+      figure {
+        display: flex;
+      }
+      .modal__buttons {
+        margin-top: 0;
+      }
+    }
+    &__image {
+      border-bottom: 0;
+      img {
+        width: 80%;
+      }
+    }
+  }
+}

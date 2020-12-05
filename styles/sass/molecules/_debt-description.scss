@@ -1,0 +1,56 @@
+// // // // DEBT DESCRIPTION // // // //
+
+.debt-description {
+  margin-top: size(20);
+  &__item {
+    margin-bottom: size(10);
+    padding-bottom: size(10);
+    border-bottom: size(2) solid var(--c-border);
+    &:last-child {
+      padding-bottom: 0;
+      border-bottom: none;
+    }
+  }
+  &__amount, &__detail {
+    display: flex;
+    align-items: center;
+    span {
+      &:last-child {
+        margin-left: auto;
+      }
+    }
+  }
+  &__amount {
+    span {
+      font-size: size(14);
+      color: var(--c-text);
+      &:last-child {
+        font-weight: var(--f-bold);
+      }
+    }
+  }
+  &__detail {
+    margin-top: size(10);
+    span {
+      font-size: size(12);
+      color: var(--c-blue-light);
+    }
+  }
+  @media (min-width: 768px) {
+    margin-top: size(20);
+    &__item {
+      margin-bottom: size(10);
+      padding-bottom: size(10);
+    }
+    &__amount {
+      span {
+        font-size: size(16);
+      }
+    }
+    &__detail {
+      span {
+        font-size: size(14);
+      }
+    }
+  }
+}

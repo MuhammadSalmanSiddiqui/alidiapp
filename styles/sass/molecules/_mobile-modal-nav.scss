@@ -1,0 +1,30 @@
+// // // // MOBILE MODAL NAV // // // //
+
+.mobile-modal-nav{
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  margin: 0 size(-20);
+  padding: size(10);
+  .back-button {
+    font-size: size(20);
+    color: var(--c-label);
+  }
+  .mobile-step-info {
+    &__title {
+      display: block;
+      text-align: right;
+      font-size: size(18);
+      font-weight: var(--f-bold);
+      color: var(--c-purple);
+    }
+    &__subtitle {
+      font-size: size(15);
+      font-weight: var(--f-bold);
+      color: var(--c-label);
+    }
+  }
+  @media (min-width: 1024px) {
+    display: none;
+  }
+}

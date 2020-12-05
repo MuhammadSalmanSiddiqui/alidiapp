@@ -1,0 +1,33 @@
+// // // // FORM // // // //
+
+.form {
+  &__group {
+    margin-bottom: size(20);
+    &.--group-two {
+      display: grid;
+      grid-gap: size(20);
+      grid-template-columns: repeat(2, 1fr);
+      .form-item {
+        .form__select {
+          padding-left: 0;
+          .form__select__value {
+            padding: size(7.5) 0;
+          }
+        }
+      }
+    }
+    &:last-child {
+      margin-bottom: 0;
+    }
+  }
+  &__text {
+    margin-top: size(10);
+    font-size: size(12);
+    color: var(--c-label);
+  }
+  @media (min-width: 768px) {
+    &__group {
+      margin-bottom: size(20);
+    }
+  }
+}
