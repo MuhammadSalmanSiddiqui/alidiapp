@@ -852,6 +852,7 @@ html body.--no-scroll {
 .form__select__value {
   padding: 0.3125rem 0;
   border: none;
+  width: 100%;
   cursor: pointer;
 }
 .form__select.--open .form__select__options {
