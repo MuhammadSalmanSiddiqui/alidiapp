@@ -9,6 +9,7 @@ const SuccessCoupon = () => {
 
   const handleOnSubmit = () => {
     dispatch({ type: actionTypes.RESET_STATE });
+    localStorage.clear();
   };
 
   return (

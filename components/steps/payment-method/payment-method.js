@@ -3,20 +3,29 @@ import SecureTemplate from "@/components/layout/secure-template";
 import Link from "next/link";
 import Context from "../../../context/context";
 import * as actionTypes from "../../../actionTypes/actionTypes";
+import { getLocalStorageValues } from "../../../constants/local-storage";
 
 const PaymentMethod = () => {
+  let { PaymentMethod } = getLocalStorageValues();
+
   const { state, dispatch } = useContext(Context);
-  const [paymentType, setpaymentType] = useState(
-    state.paymentMethod.paymentType
-  );
-  const [paymentDues, setpaymentDues] = useState(
-    state.paymentMethod.paymentDues
-  );
+  const [paymentType, setpaymentType] = useState(PaymentMethod?.paymentType);
+  const [paymentDues, setpaymentDues] = useState(PaymentMethod?.paymentDues);
 
   const handlePaymentType = (e) => {
+    let paymentType = e.target.value;
+    localStorage.setItem("PaymentMethod", JSON.stringify({
+      paymentType,
+      paymentDues
+    }));
     setpaymentType(e.target.value);
   };
   const handlePaymentDues = (e) => {
+    let paymentDues = e.target.value; 
+    localStorage.setItem("PaymentMethod", JSON.stringify({
+      paymentType,
+      paymentDues
+    }));
     setpaymentDues(e.target.value);
   };
   const handleOnSubmit = () => {
@@ -25,6 +34,7 @@ const PaymentMethod = () => {
       paymentDues: paymentDues,
     };
     dispatch({ type: actionTypes.PAYMENT_METHOD, payload: paymentMethod });
+    localStorage.setItem("PaymentMethod", JSON.stringify(paymentMethod));
   };
 
   return (
@@ -95,22 +105,37 @@ const PaymentMethod = () => {
                 <div className="form__select">
                   {/* <i className="fas fa-caret-right"></i> */}
                   {/* <ul className="form__select__options"> */}
-                  <select
-                    onChange={handlePaymentType}
-                    value={paymentType}
-                    className="form__select__value"
-                  >
-                    <optgroup style={{margin:'0',backgroundColor:'#F3F3F3',color:'black',fontSize:'1.3rem'}}>
-                    <option defaultValue hidden>
-                      - Seleccione opción
-                    </option>
-                    <option >Rapipago</option>
-                    <option >Pago mis cuentas</option>
-                    <option >Pago fácil</option>
-                    <option >Tarjeta de débito</option>
-                    <option >Transferencia</option>
-                    </optgroup>
-                  </select>
+                  {typeof window === "undefined" ? (
+                    "loading"
+                  ) : (
+                    <select
+                      onChange={handlePaymentType}
+                      value={paymentType}
+                      className="form__select__value"
+                    >
+                      <optgroup
+                        style={{
+                          margin: "0",
+                          backgroundColor: "#F3F3F3",
+                          color: "black",
+                          fontSize: "1.3rem",
+                        }}
+                      >
+                        <option value="- Seleccione opción" defaultValue hidden>
+                          - Seleccione opción
+                        </option>
+                        <option value="Rapipago">Rapipago</option>
+                        <option value="Pago mis cuentas">
+                          Pago mis cuentas
+                        </option>
+                        <option value="Pago fácil">Pago fácil</option>
+                        <option value="Tarjeta de débito">
+                          Tarjeta de débito
+                        </option>
+                        <option value="Transferencia">Transferencia</option>
+                      </optgroup>
+                    </select>
+                  )}
                 </div>
               </div>
             </div>
@@ -120,22 +145,33 @@ const PaymentMethod = () => {
                 <div className="form__select">
                   {/* <span className="form__select__value">- Seleccione opción -</span> */}
                   {/* <i className="fas fa-caret-right"></i> */}
-                  <select
-                    onChange={handlePaymentDues}
-                    value={paymentDues}
-                    className="form__select__value"
-                  >
-                    <optgroup style={{margin:'0',backgroundColor:'#F3F3F3',color:'black',fontSize:'1.3rem'}}>
-                    <option defaultValue hidden>
-                      - Seleccione opción
-                    </option>
-                    <option>1 cuota</option>
-                    <option>3 cuotas</option>
-                    <option>6 cuotas</option>
-                    <option>12 cuotas</option>
-                    <option>18 cuotas</option>
-                    </optgroup>
-                  </select>
+                  {typeof window === "undefined" ? (
+                    "loading"
+                  ) : (
+                    <select
+                      onChange={handlePaymentDues}
+                      value={paymentDues}
+                      className="form__select__value"
+                    >
+                      <optgroup
+                        style={{
+                          margin: "0",
+                          backgroundColor: "#F3F3F3",
+                          color: "black",
+                          fontSize: "1.3rem",
+                        }}
+                      >
+                        <option value="- Seleccione opción" defaultValue hidden>
+                          - Seleccione opción
+                        </option>
+                        <option value="1 cuota">1 cuota</option>
+                        <option value="3 cuotas">3 cuotas</option>
+                        <option value="6 cuotas">6 cuotas</option>
+                        <option value="12 cuotas">12 cuotas</option>
+                        <option value="18 cuotas">18 cuotas</option>
+                      </optgroup>
+                    </select>
+                  )}
                 </div>
               </div>
             </div>

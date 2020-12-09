@@ -3,15 +3,21 @@ import SecureTemplate from "@/components/layout/secure-template";
 import Link from "next/link";
 import Context from "../../context/context";
 import * as actionTypes from "../../actionTypes/actionTypes";
+import { getLocalStorageValues } from "../../constants/local-storage";
 
 const HomeManager = () => {
+  const { Dni } = getLocalStorageValues();
   const { state, dispatch } = useContext(Context);
-  const [DNI, setDNI] = useState(state.DNI);
+  const [DNI, setDNI] = useState(Dni);
+
   const handleOnChange = (e) => {
+    e.preventDefault();
+    localStorage.setItem('DNI', e.target.value);
     setDNI(e.target.value);
   };
   const handleOnSubmit = () => {
     dispatch({ type: actionTypes.DNI, payload: DNI });
+    localStorage.setItem('DNI', DNI);
   };
 
   return (

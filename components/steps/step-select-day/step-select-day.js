@@ -3,21 +3,24 @@ import SecureTemplate from "@/components/layout/secure-template";
 import Link from "next/link";
 import Context from "../../../context/context";
 import * as actionTypes from "../../../actionTypes/actionTypes";
+import { getLocalStorageValues } from "../../../constants/local-storage";
 
 const StepSelectDay = () => {
+  let { PaymentPromiseDate } = getLocalStorageValues();
   const { state, dispatch } = useContext(Context);
   const [paymentPromiseDate, setpaymentPromiseDate] = useState(
-    state.paymentPromiseDate
+   PaymentPromiseDate
   );
   const handlepaymentPromiseDate = (e) => {
+    localStorage.setItem("PaymentPromiseDate", e.target.value);
     setpaymentPromiseDate(e.target.value);
   };
   const handleOnSubmit = () => {
+    localStorage.setItem("PaymentPromiseDate", paymentPromiseDate);
     dispatch({
       type: actionTypes.PAYMENT_PROMISE_DATE,
       payload: paymentPromiseDate,
     });
-    console.log(state);
   };
 
   return (
@@ -82,6 +85,9 @@ const StepSelectDay = () => {
               <div className="form-item">
                 <div className="form__label">Fecha de promesa de pago</div>
                 <div className="form__select">
+                {typeof window === "undefined" ? (
+                    "loading"
+                  ) : (
                   <input
                     className="form__select__value"
                     placeholder="- Seleccione fecha -"
@@ -89,6 +95,8 @@ const StepSelectDay = () => {
                     onChange={handlepaymentPromiseDate}
                     value={paymentPromiseDate}
                   />
+                  )
+                }
                   {/* <i className="fas fa-caret-down"></i> */}
                 </div>
                 <p className="form__text">
